@@ -1,6 +1,6 @@
 // Add BandInput component
 import React, { Component } from 'react'
-import {connect} from 'react-redux'
+//import {connect} from 'react-redux'
 
 class BandInput extends Component {
   constructor(){
@@ -16,8 +16,9 @@ class BandInput extends Component {
     })
   }
 
-  handleOnSubmit = (e) => {
-    e.preventdefaut()
+  handleOnSubmit(e) {
+   // debugger
+    e.preventDefault()
     this.props.addBand(this.state)
     this.setState({
       name: ''
@@ -27,7 +28,7 @@ class BandInput extends Component {
   render() {
     return(
       <div>
-        <form>
+        <form onSubmit = {(e) => {this.handleOnSubmit(e)}}>
           <input 
             type="text"
             value= {this.state.name}
@@ -41,8 +42,11 @@ class BandInput extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  addBand: formData => dispatch({type: 'ADD_BAND', payload: formData})
-})
+export default BandInput
 
-export default connect(null, mapDispatchToProps)(BandInput)
+
+// const mapDispatchToProps = dispatch => ({
+//   addBand: formData => dispatch({type: 'ADD_BAND', payload: formData})
+// })
+
+// export default connect(null, mapDispatchToProps)(BandInput)
