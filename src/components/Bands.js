@@ -7,7 +7,7 @@ const Bands = (props)  => {
     return(
       <div>
         {props.bandsNames.map((band, id) => {
-          return (<li key={id}> {band} </li>)
+          return (<li key={id}> {band.name} </li>)
         })}
       </div>
     )
